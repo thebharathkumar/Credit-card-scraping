@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDFC Credit Cards - Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-credit-card"></i>
+                    <h1>HDFC Credit Cards</h1>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Cards</span>
+                        <span class="stat-value" id="totalCards">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search and Filter Section -->
+        <section class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search by card name, rewards, benefits...">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Cards
+                </button>
+                <button class="filter-btn" data-filter="lounge">
+                    <i class="fas fa-plane"></i> Lounge Access
+                </button>
+                <button class="filter-btn" data-filter="rewards">
+                    <i class="fas fa-gift"></i> High Rewards
+                </button>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading credit cards...</p>
+        </div>
+
+        <!-- Cards Grid -->
+        <section class="cards-grid" id="cardsGrid">
+            <!-- Cards will be dynamically inserted here -->
+        </section>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>No cards found</h3>
+            <p>Try adjusting your search or filters</p>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Credit Card Data Scraper - HDFC Bank</p>
+            <p class="footer-note">Data scraped from HDFC Bank official website</p>
+        </footer>
+    </div>
+
+    <!-- Card Detail Modal -->
+    <div class="modal" id="cardModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div id="modalBody">
+                <!-- Card details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
